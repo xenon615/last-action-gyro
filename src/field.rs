@@ -32,7 +32,6 @@ fn startup(
     }
 
     mesh.compute_normals();
-
     cmd.spawn((
         Mesh3d(meshes.add(mesh.clone())),
         MeshMaterial3d(mat_black.clone()),
