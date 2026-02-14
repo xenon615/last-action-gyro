@@ -7,7 +7,6 @@ impl Plugin for HeroPlugin {
     fn build(&self, app: &mut App) {
         app
             .add_systems(Startup, startup)
-            // .add_systems(Update, show_gizmos)
         ;
     }
 }
@@ -110,13 +109,4 @@ fn startup(
             .with_local_anchor2(Vec3::Y * body_dim.1 * 0.5)
             .with_point_compliance(0.),
     );
-}
-
-#[allow(dead_code)]
-fn show_gizmos(
-    mut gizmos: Gizmos,
-    q: Single<&Transform, With<Body>>
-) {
-    let t = q.into_inner();
-    gizmos.ray(t.translation, t.forward() * 10., Color::WHITE);
 }
