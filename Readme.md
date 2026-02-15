@@ -4,8 +4,9 @@ Okay, so that works in real life. I'd be interested to see if we can achieve the
 
 Let's create our hero  
 <img src="img/image1.png" alt="hero">  
-Top down 
-The disk, also known as a flywheel :), will spin([AngularVelocity](https://docs.rs/avian3d/latest/avian3d/dynamics/rigid_body/struct.AngularVelocity.html)) and create a gyroscopic effect. 
+  
+Top down   
+The disk, also known as a flywheel :), will spin([AngularVelocity](https://docs.rs/avian3d/latest/avian3d/dynamics/rigid_body/struct.AngularVelocity.html)) and create a gyroscopic effect.   
 The body is attached to it using a [RevoluteJoint](https://docs.rs/avian3d/latest/avian3d/dynamics/joints/struct.RevoluteJoint.html). 
 A sphere, which serves as our hero's wheel, is attached to the body using a (SphericalJoint)[https://docs.rs/avian3d/latest/avian3d/dynamics/joints/struct.SphericalJoint.html]. 
 
