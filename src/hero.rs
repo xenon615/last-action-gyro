@@ -1,5 +1,5 @@
 use bevy::{
-    prelude::*
+    input::common_conditions::input_just_pressed, prelude::*
 };
 use avian3d::{math::PI, prelude::*};
 pub struct HeroPlugin;
@@ -7,6 +7,8 @@ impl Plugin for HeroPlugin {
     fn build(&self, app: &mut App) {
         app
             .add_systems(Startup, startup)
+            .add_systems(Update, go.run_if(input_just_pressed(KeyCode::Space)))
+            .add_systems(Update, stop_rotation.run_if(input_just_pressed(KeyCode::Enter)))
         ;
     }
 }
@@ -32,7 +34,7 @@ fn startup(
         base_color_texture: Some(assets.load("textures/strips.png")),
         // base_color: Color::srgba(1., 1., 1., 0.1),
         // alpha_mode: AlphaMode::Blend,
-        reflectance: 0.1,
+        reflectance: 0.0,
         metallic: 0.5,
         ..default()
     });
@@ -70,7 +72,7 @@ fn startup(
             // RigidBody::Static,
             RigidBody::Dynamic,
             Body,
-            ConstantForce(-Vec3::Z * 1000.)
+            ConstantForce(Vec3::ZERO)
         ))
         .id();
 
@@ -109,4 +111,20 @@ fn startup(
             .with_local_anchor2(Vec3::Y * body_dim.1 * 0.5)
             .with_point_compliance(0.),
     );
+}
+
+// ---
+
+fn go (
+    q: Single<&mut ConstantForce, With<Body>>
+) {
+    q.into_inner().0 = -Vec3::Z * 800.;
+}
+
+// ---
+
+fn stop_rotation (
+    q: Single<&mut AngularVelocity, With<Gyro>>
+) {
+    q.into_inner().0 = Vec3::ZERO;
 }

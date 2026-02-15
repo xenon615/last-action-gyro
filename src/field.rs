@@ -22,7 +22,7 @@ fn startup(
     mut materials: ResMut<Assets<StandardMaterial>>
 ) {
     let mat_black = materials.add(Color::BLACK);
-    let mut mesh = Mesh::from(Plane3d::default().mesh().size(100., 200.).subdivisions(100));
+    let mut mesh = Mesh::from(Plane3d::default().mesh().size(200., 200.).subdivisions(100));
 
     let Some(VertexAttributeValues::Float32x3(verticis)) = mesh.attribute_mut(Mesh::ATTRIBUTE_POSITION) else {
         return;

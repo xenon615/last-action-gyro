@@ -4,12 +4,11 @@ use bevy::{
     prelude::*
 };
 
-use avian3d::prelude::{LinearVelocity, PhysicsSystems};
+use avian3d::prelude::PhysicsSystems;
 
 use crate::{
     hero::Body
 };
-
 
 pub struct CameraPlugin;
 impl Plugin for CameraPlugin {
