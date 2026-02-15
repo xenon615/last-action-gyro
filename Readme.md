@@ -3,7 +3,7 @@ Everyone knows that a spinning flywheel has a gyroscopic effect, meaning it tend
 Okay, so that works in real life. I'd be interested to see if we can achieve the same effect using Avian3D?
 
 Let's create our hero  
-<img src="img/image1.png" alt="hero">
+<img src="img/image1.png" alt="hero">  
 Top down 
 The disk, also known as a flywheel :), will spin([AngularVelocity](https://docs.rs/avian3d/latest/avian3d/dynamics/rigid_body/struct.AngularVelocity.html)) and create a gyroscopic effect. 
 The body is attached to it using a [RevoluteJoint](https://docs.rs/avian3d/latest/avian3d/dynamics/joints/struct.RevoluteJoint.html). 
