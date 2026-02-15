@@ -35,7 +35,7 @@ fn startup(
         // base_color: Color::srgba(1., 1., 1., 0.1),
         // alpha_mode: AlphaMode::Blend,
         reflectance: 0.0,
-        metallic: 0.5,
+        // metallic: 0.5,
         ..default()
     });
 

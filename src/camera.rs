@@ -81,7 +81,7 @@ fn follow (
     let mut cam_t = cam_q.into_inner();
 
     let desired = focus_t.translation  +  focus_t.rotation.mul_vec3(cam_param.tranlation_bias);
-    cam_t.translation = cam_t.translation.lerp(desired, time.delta_secs() * cam_param.translation_speed);
+    cam_t.translation = cam_t.translation.lerp(desired.with_y(20.).with_x(50.), time.delta_secs() * cam_param.translation_speed);
     let look_at = focus_t.translation+ focus_t.rotation.mul_vec3(cam_param.look_bias);
     cam_t.rotation = cam_t.rotation.slerp(cam_t.looking_at(look_at, Vec3::Y).rotation, time.delta_secs() * cam_param.rotation_speed);
 }
